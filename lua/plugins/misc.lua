@@ -1,1 +1,10 @@
-return { { 'echasnovski/mini.pairs', version = '*' },}
+return {
+	{ 'echasnovski/mini.pairs', version = '*' },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	}
+}
