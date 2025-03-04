@@ -11,6 +11,7 @@ return {
 			enabled = function(root_dir)
 				return not vim.uv.fs_stat(root_dir .. "/.luarc.json")
 			end,
+			filetypes = { "lua", "scene" },
 		},
 	},
 	{ -- optional cmp completion source for require statements and module annotations
