@@ -3,11 +3,19 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim"
+			"williamboman/mason-lspconfig.nvim",
+			{ "ms-jpq/coq_nvim",       branch = "coq" },
+			{ "ms-jpq/coq.artifacts",  branch = "artifacts" },
+			{ 'ms-jpq/coq.thirdparty', branch = "3p" }
 		},
+		init = function()
+			vim.g.coq_settings = {
+				auto_start = true, -- if you want to start COQ at startup
+				-- Your COQ settings here
+			}
+		end,
 		config = function()
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 			require('mason').setup()
 			local mason_lspconfig = require 'mason-lspconfig'
