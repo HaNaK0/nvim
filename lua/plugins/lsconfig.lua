@@ -19,6 +19,7 @@ return {
 			}
 			require("lspconfig").lua_ls.setup {}
 
+			require("lspconfig").ts_ls.setup {}
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 		end
 	},
