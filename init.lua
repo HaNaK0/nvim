@@ -8,7 +8,7 @@ vim.o.expandtab = false
 
 local love_file = vim.fn.findfile("build_love.sh", ".", 1)
 if love_file ~= "" then
-	vim.api.nvim_create_autocmd("BufWritePost", { pattern = "*.lua", command = ":!bash " .. love_file })
+	--vim.api.nvim_create_autocmd("BufWritePost", { pattern = "*.lua", command = ":!bash " .. love_file })
 	vim.api.nvim_create_user_command("B", ":!bash " .. love_file , {})
 	print("registered love build autocmd")
 end
