@@ -20,7 +20,7 @@ return {
 			require('mason').setup()
 			local mason_lspconfig = require 'mason-lspconfig'
 			mason_lspconfig.setup {
-				ensure_installed = { "pyright", "typescript-language-server"}
+				ensure_installed = { "pyright", "ts_ls", "marksman"}
 			}
 			require("lspconfig").pyright.setup {
 				capabilities = capabilities,
@@ -28,6 +28,8 @@ return {
 			require("lspconfig").lua_ls.setup {}
 
 			require("lspconfig").ts_ls.setup {}
+
+			require("lspconfig").marksman.setup {}
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 		end
 	},
