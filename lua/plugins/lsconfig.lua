@@ -10,7 +10,7 @@ return {
 		},
 		init = function()
 			vim.g.coq_settings = {
-				auto_start = true, -- if you want to start COQ at startup
+				auto_start = "shut-up", -- if you want to start COQ at startup
 				-- Your COQ settings here
 			}
 		end,
@@ -20,12 +20,24 @@ return {
 			require('mason').setup()
 			local mason_lspconfig = require 'mason-lspconfig'
 			mason_lspconfig.setup {
-				ensure_installed = { "pyright" }
+				ensure_installed = { "pyright", "marksman"}
 			}
 			require("lspconfig").pyright.setup {
 				capabilities = capabilities,
 			}
 			require("lspconfig").lua_ls.setup {}
+
+			require("lspconfig").marksman.setup {}
+
+			require 'lspconfig'.rust_analyzer.setup {
+				settings = {
+					['rust-analyzer'] = {
+						diagnostics = {
+							enable = false,
+						}
+					}
+				}
+			}
 
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 		end
