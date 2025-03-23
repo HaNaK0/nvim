@@ -29,16 +29,6 @@ return {
 
 			require("lspconfig").marksman.setup {}
 
-			require 'lspconfig'.rust_analyzer.setup {
-				settings = {
-					['rust-analyzer'] = {
-						diagnostics = {
-							enable = false,
-						}
-					}
-				}
-			}
-
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 		end
 	},
