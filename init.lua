@@ -5,6 +5,7 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 vim.o.expandtab = false
+vim.o.exrc = true
 
 local love_file = vim.fn.findfile("build_love.sh", ".", 1)
 if love_file ~= "" then
@@ -41,3 +42,5 @@ vim.keymap.set("n", "<leader>r", function()
 		end
 	end, 500)
 end)
+
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)

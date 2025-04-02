@@ -20,7 +20,7 @@ return {
 			require('mason').setup()
 			local mason_lspconfig = require 'mason-lspconfig'
 			mason_lspconfig.setup {
-				ensure_installed = { "pyright", "ts_ls", "marksman" , "rust_analyzer"}
+				ensure_installed = { "pyright", "ts_ls", "marksman", "rust_analyzer" }
 			}
 			require("lspconfig").pyright.setup {
 				capabilities = capabilities,
@@ -31,16 +31,12 @@ return {
 
 			require("lspconfig").marksman.setup {}
 
-			require 'lspconfig'.rust_analyzer.setup {
-				settings = {
-					['rust-analyzer'] = {
-						diagnostics = {
-							enable = false,
-						}
-					}
-				}
-			}
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+
+			vim.keymap.set("n", '<leader>i',
+				function()
+					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+				end)
 		end
 	},
 }
