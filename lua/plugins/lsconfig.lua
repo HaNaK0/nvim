@@ -20,7 +20,7 @@ return {
 			require('mason').setup()
 			local mason_lspconfig = require 'mason-lspconfig'
 			mason_lspconfig.setup {
-				ensure_installed = { "pyright", "ts_ls", "marksman", "rust_analyzer" }
+				ensure_installed = { "pyright", "ts_ls", "marksman", "rust_analyzer"}
 			}
 			require("lspconfig").pyright.setup {
 				capabilities = capabilities,
@@ -30,6 +30,8 @@ return {
 			require("lspconfig").ts_ls.setup {}
 
 			require("lspconfig").marksman.setup {}
+
+			require("lspconfig").teal_ls.setup {}
 
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 
