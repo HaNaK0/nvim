@@ -4,17 +4,19 @@ return {
 	config = function()
 		local job = require('plenary.job')
 
-		local function run_love()
+		function Run_love()
 			---@diagnostic disable-next-line: missing-fields
 			job:new({
 				command = "love",
 				args = { "./" },
 				on_stderr = function(err)
-					print(err)
+					if err then
+						print(err)
+					end
 				end
 			}):start()
 		end
 
-		vim.api.nvim_create_user_command("Love", run_love, {})
+		vim.api.nvim_create_user_command("Love", Run_love, {})
 	end
 }

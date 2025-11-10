@@ -22,16 +22,18 @@ return {
 			mason_lspconfig.setup {
 				ensure_installed = { "pyright", "ts_ls", "marksman", "rust_analyzer"}
 			}
-			require("lspconfig").pyright.setup {
+			vim.lsp.config("pyright", {
 				capabilities = capabilities,
-			}
-			require("lspconfig").lua_ls.setup {}
+			})
+			vim.lsp.enable("pyright")
+			
+			vim.lsp.enable("lua_ls")
 
-			require("lspconfig").ts_ls.setup {}
+			vim.lsp.enable("ts_ls")
 
-			require("lspconfig").marksman.setup {}
+			vim.lsp.enable("marksman")
 
-			require("lspconfig").teal_ls.setup {}
+			vim.lsp.enable("teal_ls")
 
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 

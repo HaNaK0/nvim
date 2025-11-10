@@ -44,3 +44,4 @@ vim.keymap.set("n", "<leader>r", function()
 end)
 
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>l", "<cmd>Love<CR>", {desc = "run love in cwd"})
