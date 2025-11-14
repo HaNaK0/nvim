@@ -22,12 +22,14 @@ return {
 			mason_lspconfig.setup {
 				ensure_installed = { "pyright", "marksman"}
 			}
-			require("lspconfig").pyright.setup {
+			vim.lsp.config("pyright", {
 				capabilities = capabilities,
-			}
-			require("lspconfig").lua_ls.setup {}
+			})
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("lua_ls")
 
-			require("lspconfig").marksman.setup {}
+			vim.lsp.enable("marksman")
+			vim.lsp.enable("jsonls")
 
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 		end
