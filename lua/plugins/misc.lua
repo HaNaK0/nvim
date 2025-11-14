@@ -1,5 +1,9 @@
 return {
-	{ 'echasnovski/mini.pairs', version = '*' },
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		config = true,
+	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
