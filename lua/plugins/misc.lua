@@ -6,5 +6,9 @@ return {
 		---@module "ibl"
 		---@type ibl.config
 		opts = {},
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		opts = {},
 	}
 }
