@@ -15,7 +15,8 @@ return {
 			--}
 		end,
 		config = function()
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 			require('mason').setup()
 			local mason_lspconfig = require 'mason-lspconfig'
@@ -26,9 +27,20 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.enable("pyright")
+			
+			vim.lsp.config("lua_ls", {
+				capabilities = capabilities,
+			})
 			vim.lsp.enable("lua_ls")
 
+			vim.lsp.config("marksman", {
+				capabilities = capabilities,
+			})
 			vim.lsp.enable("marksman")
+
+			vim.lsp.config("jsonls", {
+				capabilities = capabilities,
+			})
 			vim.lsp.enable("jsonls")
 
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float)
